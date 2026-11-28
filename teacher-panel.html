@@ -1,0 +1,186 @@
+<!doctype html><html lang="fa" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#050b1a"><title>داشبورد استاد | پروتکل‌یار ۱۱۵</title><style>:root{--bg:#050b1a;--card:rgba(255,255,255,.045);--ink:#e8f0ff;--mut:#8fa3c7;--line:rgba(120,160,255,.16);--pri:#5aa2ff;--pri2:rgba(47,123,255,.16);--ok:#3ddc97;--ok2:rgba(61,220,151,.14);--warn:#ffb454;--warn2:rgba(255,180,84,.14);--bad:#ff7a8a;--p-student:#5aa2ff;--p-aha:#ff7a8a;--p-nrp:#3ddc97;--p-protocols:#ffb454}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+body{margin:0;color:var(--ink);font:15px/1.8 Vazirmatn,Tahoma,system-ui,sans-serif;min-height:100dvh;padding-top:env(safe-area-inset-top,0px);background:radial-gradient(1200px 600px at 70% -10%,#12409a 0,transparent 60%),radial-gradient(800px 500px at 0 30%,#0b2a6b55 0,transparent 60%),var(--bg);background-attachment:fixed}
+h1,h2,h3,p{margin:0}h2{font-size:18px}button,input,select,textarea{font:inherit;color:inherit}[hidden]{display:none!important}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 20px 60px -30px #1d5fff66,inset 0 1px 0 #ffffff12}
+input,select,textarea{width:100%;background:#0a1530;border:1px solid var(--line);border-radius:14px;padding:10px 14px;color:var(--ink)}select option{background:#0a1530}
+label{display:block;font-weight:700;font-size:13px;color:var(--mut);margin-top:12px}label>input,label>select,label>textarea{margin-top:4px;font-weight:400}
+button{border:0;border-radius:99px;padding:10px 20px;background:linear-gradient(180deg,#4b95ff,#2467e8);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 24px -8px #2f7bff;transition:transform .15s}button:hover{transform:translateY(-1px)}button:disabled{opacity:.5;cursor:wait}
+button.ghost{background:var(--pri2);color:var(--pri);box-shadow:none;border:1px solid var(--line)}button.danger{background:var(--warn2);color:var(--bad);box-shadow:none}
+:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+#msg{min-height:24px;color:var(--warn);font-weight:700;padding:8px 20px;text-align:center}
+#login{max-width:440px;margin:12vh auto 0;width:calc(100% - 32px)}#login .logo{width:54px;height:54px;border-radius:18px;background:var(--pri2);display:grid;place-items:center;font-size:26px;margin-bottom:12px}#login button{width:100%;margin-top:16px}
+#app{max-width:1240px;margin:auto;padding:14px 16px 40px}
+.bar{display:flex;gap:12px;align-items:center;padding:8px 8px 8px 14px;border:1px solid var(--line);border-radius:99px;background:#0a153099;backdrop-filter:blur(14px);position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:5}
+.brand{display:flex;gap:8px;align-items:center;font-weight:800;white-space:nowrap}.brand i{font-style:normal;width:34px;height:34px;border-radius:50%;background:#fff;color:#0a1530;display:grid;place-items:center}
+#tnav{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}#tnav button{background:none;color:var(--mut);box-shadow:none;padding:8px 16px;white-space:nowrap}#tnav button[aria-pressed=true]{background:#fff;color:#0a1530}
+.bar .chip{white-space:nowrap}#exit{background:#fff;color:#0a1530;box-shadow:none}#cmdk{background:var(--pri2);color:var(--pri);box-shadow:none;border:1px solid var(--line)}
+main{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+.hero{padding:34px 8px 6px;text-align:center}.hero h1{font-size:clamp(28px,6vw,52px);line-height:1.35;font-weight:800}.hero em{font-style:normal;background:linear-gradient(90deg,#5aa2ff,#9ed0ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--mut);max-width:560px;margin:10px auto 18px}
+.hero .go{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.chip{background:var(--pri2);color:var(--pri);border:1px solid var(--line);border-radius:99px;padding:3px 14px;font-size:13px;font-weight:700}.mut{color:var(--mut);font-size:13px}
+.quad{display:grid;grid-template-columns:1fr 1fr;position:relative}.quad::before,.quad::after{content:"";position:absolute;background:linear-gradient(transparent,var(--line),transparent)}.quad::before{inset:8% 50% 8% auto;width:1px}.quad::after{inset:50% 4% auto 4%;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.q{padding:18px 22px;display:flex;gap:12px;align-items:center}.q b{font-size:clamp(28px,5vw,40px);line-height:1.2;display:block}.q::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pri);box-shadow:0 0 12px var(--pri);align-self:flex-start;margin-top:10px}
+.ring{--p:0;width:44px;height:44px;border-radius:50%;background:conic-gradient(var(--pri) calc(var(--p)*1%),var(--pri2) 0);display:grid;place-items:center;flex:none;margin-inline-start:auto}.ring::after{content:"";width:30px;height:30px;border-radius:50%;background:#0a1530}
+.fl{display:grid;grid-template-columns:auto 1fr auto;gap:0;align-items:center;margin-top:14px}.nd{background:linear-gradient(160deg,#17408f,#0a1c46);border:1px solid var(--line);border-radius:18px;padding:16px 20px;text-align:center;box-shadow:0 0 40px -10px #2f7bffaa}.nd b{display:block}.nd small{color:var(--mut)}
+#fl{display:grid;gap:10px;padding:0 44px;position:relative}#fl::before,#fl::after{content:"";position:absolute;top:12%;bottom:12%;width:2px;background:linear-gradient(transparent,var(--pri),transparent);box-shadow:0 0 10px var(--pri)}#fl::before{inset-inline-start:22px}#fl::after{inset-inline-end:22px}
+.pc{position:relative;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#0a1530cc;border:1px solid var(--line);border-inline-start:3px solid var(--c);border-radius:14px;padding:10px 14px}.pc b{flex:1;min-width:100px}.pc small{color:var(--mut)}
+.pc::before,.pc::after{content:"";position:absolute;top:50%;width:24px;height:1px;background:linear-gradient(90deg,var(--pri),transparent)}.pc::before{inset-inline-start:-24px}.pc::after{inset-inline-end:-24px;transform:scaleX(-1)}
+.grid2{display:grid;grid-template-columns:3fr 2fr;gap:16px}
+.bars{display:flex;align-items:flex-end;gap:14px;height:170px;padding-top:10px}.bars div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:6px;font-size:12px;color:var(--mut)}.bars span{width:100%;max-width:56px;border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,#7bb6ff,#2467e8);box-shadow:0 0 24px -4px #2f7bff;min-height:4px;transition:height .5s}.bars b{color:var(--ink);font-size:13px}
+.hb{display:grid;gap:12px;margin-top:10px}.hb p{display:grid;grid-template-columns:96px 1fr 34px;gap:10px;align-items:center;font-size:13px}.hb i{height:10px;border-radius:9px;background:#0a1530;overflow:hidden}.hb i s{display:block;height:100%;border-radius:9px;background:var(--c,var(--pri));box-shadow:0 0 12px var(--c)}
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.tools label{flex:1;min-width:150px;margin:0}
+.st{border-top:1px solid var(--line);padding:12px 0}.st summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:40px 1fr auto 70px;gap:12px;align-items:center}.st summary::-webkit-details-marker{display:none}
+.av{width:40px;height:40px;border-radius:50%;background:var(--pri2);color:var(--pri);display:grid;place-items:center;font-weight:800;border:1px solid var(--line)}.tag{font-size:12px;font-weight:700;border-radius:99px;padding:2px 12px;background:var(--warn2);color:var(--warn)}.tag.ok{background:var(--ok2);color:var(--ok)}
+.det{padding:10px 52px 0;display:grid;gap:4px;font-size:13px;color:var(--mut)}
+.pg{display:flex;gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap}.pg button{background:var(--pri2);color:var(--ink);padding:6px 14px;box-shadow:none}.pg button[aria-current=page]{background:#fff;color:#0a1530}
+.two{display:grid;grid-template-columns:3fr 2fr;gap:16px;align-items:start}.pv{position:sticky;top:90px;background:linear-gradient(160deg,#143a85,#0a1c46)}.pv h3{margin:6px 0}.pv p{white-space:pre-wrap;overflow-wrap:anywhere;color:#cfe0ff}
+.it{border:1px solid var(--line);border-inline-start:4px solid var(--pri);border-radius:16px;padding:14px;margin-top:12px;background:#0a153066}.it h3{font-size:16px;margin:4px 0}.it p{white-space:pre-wrap;overflow-wrap:anywhere}.it.off{opacity:.55}
+.sk{height:60px;border-radius:14px;background:linear-gradient(90deg,#0a1530,#17408f55,#0a1530);background-size:200% 100%;animation:sk 1.2s infinite}@keyframes sk{to{background-position:-200% 0}}
+dialog{background:#0a1530;color:var(--ink);border:1px solid var(--line);border-radius:22px;width:min(520px,92vw);padding:14px;box-shadow:0 30px 80px #000}dialog::backdrop{background:#020610cc;backdrop-filter:blur(4px)}#cmdl{display:grid;gap:6px;margin-top:10px}#cmdl button{background:none;color:var(--ink);text-align:start;box-shadow:none;border-radius:12px}#cmdl button:hover{background:var(--pri2)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:760px){.grid2,.two{grid-template-columns:1fr}.pv{position:static}.fl{grid-template-columns:1fr;gap:12px}#fl{padding:0 24px}#fl::before{inset-inline-start:8px}#fl::after{inset-inline-end:8px}.pc::before,.pc::after{display:none}.bar .brand span,.bar .chip{display:none}.st summary{grid-template-columns:40px 1fr 60px}.st summary .tag{display:none}.det{padding-inline:0}}
+</style>
+<body>
+<div id="msg" role="status" aria-live="polite"></div>
+<form id="login" class="card"><div style="display:grid;justify-items:center;gap:4px;margin-bottom:12px"><svg viewBox="0 0 100 100" width="76" height="76" role="img" aria-label="ستاره حیات" xmlns="http://www.w3.org/2000/svg"><g stroke="#2f7bff" stroke-width="15" stroke-linecap="round"><path d="M50 9V91"/><path d="M50 9V91" transform="rotate(60 50 50)"/><path d="M50 9V91" transform="rotate(120 50 50)"/></g><path d="M50 21V79" stroke="#fff" stroke-width="4.5" stroke-linecap="round" fill="none"/><path d="M50 29C63 33 63 42 50 46C37 50 37 58 50 62C61 65 61 72 50 76" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/></svg><div dir="ltr" style="font-weight:800;font-size:15px;letter-spacing:.3px;color:var(--ink)">javad heidari</div></div><h2>ورود استاد</h2><p class="mut">کد شخصی تأییدشده توسط مدیر، یا رمز مدیر را وارد کنید.</p><label>کد شخصی یا رمز مدیر<input id="pw" type="password" dir="ltr" autocomplete="current-password" required></label><button>ورود</button></form>
+<div id="app" hidden>
+<header class="bar"><div class="brand"><i>🫀</i><span>پروتکل‌یار ۱۱۵</span></div>
+<nav id="tnav" aria-label="بخش‌ها"><button data-t="res" aria-pressed="true">داشبورد</button><button data-t="pub" aria-pressed="false">انتشار</button><button data-t="list" aria-pressed="false">منتشرشده‌ها</button><button data-t="ask" id="askTab" aria-pressed="false">سؤال‌های دانشجویان</button></nav>
+<span class="chip" id="who"></span><button id="cmdk" type="button" aria-label="عملیات سریع">⌘K</button><button id="exit" type="button">خروج</button></header>
+<main>
+<section class="hero"><span class="chip" id="today"></span><h1>پنل استاد، <em>هماهنگ</em> با دانشجو و مدیر</h1><p>نتایج دانشجویان را زنده ببینید، سؤال و درس منتشر کنید و مطمئن باشید مدیر همه‌چیز را می‌بیند.</p><div class="go"><button id="go1" type="button">انتشار سؤال جدید</button><button id="go2" class="ghost" type="button">مشاهدهٔ نتایج</button></div></section>
+<section id="tRes" style="display:contents">
+<div class="card quad"><div class="q"><div><small class="mut">دانشجویان فعال</small><b id="kS">—</b></div></div><div class="q"><div><small class="mut">پایان آموزش</small><b id="kF">—</b></div></div><div class="q"><div><small class="mut">نتایج ثبت‌شده</small><b id="kR">—</b></div></div><div class="q"><div><small class="mut">میانگین نمره</small><b id="kA">—</b></div><span class="ring" id="kRing"></span></div></div>
+<div class="card"><h2>جریان ارتباط: استاد ← پنل‌ها ← مدیر</h2><div class="fl"><div class="nd"><b>پنل استاد</b><small>انتشار و پایش</small></div><div id="fl"></div><div class="nd"><b>پنل مدیر</b><small>همهٔ محتوا و نتایج را می‌بیند</small></div></div></div>
+<div class="grid2"><div class="card"><h2>میانگین نمره به تفکیک نوع آزمون</h2><div class="bars" id="chK"></div></div><div class="card"><h2>سهم هر پنل از نتایج</h2><div class="hb" id="chP"></div></div></div>
+<div class="card"><h2>وضعیت دانشجویان</h2><div class="tools"><label>جست‌وجوی نام<input id="q" maxlength="80" placeholder="نام دانشجو…"></label><label>پنل<select id="fp"><option value="">همه</option><option value="student">دانشجو</option><option value="aha">AHA</option><option value="nrp">NRP</option><option value="protocols">پروتکل‌ها</option></select></label><label>نوع<select id="fk"><option value="">همه</option><option value="pre">پیش‌آزمون</option><option value="post">پس‌آزمون</option><option value="exam">آزمون</option><option value="calc">محاسبات دارویی</option><option value="finish">پایان آموزش</option></select></label><button id="refresh" class="ghost" type="button">↻ به‌روزرسانی</button></div><p class="mut" id="sum" style="margin-top:10px"></p><div id="rows"></div><div class="pg" id="pg"></div></div>
+</section>
+<section id="tPub" class="two" hidden><div class="card"><h2>انتشار برای دانشجویان</h2><p class="mut" id="pnote"></p><form id="pub"><div class="tools"><label>نوع<select id="pk"><option value="question">سؤال</option><option value="lesson">متن درس (یا اصلاح آن)</option><option value="notice">اطلاعیه</option></select></label><label>ارسال به پنل<select id="pt"><option value="student">دانشجو</option><option value="aha">آموزش AHA</option><option value="nrp">آموزش NRP</option><option value="protocols">آموزش پروتکل‌ها</option></select></label></div><label>موضوع (اختیاری)<input id="ptopic" maxlength="140"></label><label>عنوان<input id="ptitle" minlength="2" maxlength="140" required></label><label id="ptl" for="ptext">متن</label><textarea id="ptext" rows="6" maxlength="8000" required></textarea><div id="pqbox"><label>گزینه‌ها (هر گزینه در یک خط)<textarea id="popts" rows="4" maxlength="2000"></textarea></label><div class="tools"><label>شمارهٔ گزینهٔ درست<input id="pans" inputmode="numeric" value="1"></label><label>توضیح پاسخ (اختیاری)<input id="pwhy" maxlength="500"></label></div></div><button style="margin-top:16px">انتشار</button></form></div>
+<aside class="card pv"><small class="mut">پیش‌نمایش برای دانشجو</small><h3 id="pvT"></h3><small id="pvK" class="mut"></small><p id="pvB"></p></aside></section>
+<section id="tList" class="card" hidden><div class="tools"><h2 style="flex:1">محتوای منتشرشده</h2><button id="lref" class="ghost" type="button">↻ به‌روزرسانی</button></div><div id="clist"></div></section>
+<section id="tAsk" class="card" hidden><div class="tools"><h2 style="flex:1">سؤال‌های دانشجویان از استاد</h2><label style="flex:none;min-width:160px">وضعیت<select id="askf"><option value="open">بدون پاسخ</option><option value="">همه</option><option value="answered">پاسخ‌داده‌شده</option></select></label><button id="askref" class="ghost" type="button">↻ به‌روزرسانی</button></div><p class="mut" style="margin-top:8px">سؤال‌هایی که دانشجو از ربات پنل دانشجو می‌پرسد اینجا می‌آید؛ پاسخ شما فقط برای همان دانشجو نمایش داده می‌شود.</p><div id="asklist"></div></section>
+</main></div>
+<dialog id="cmd"><input id="cmdq" placeholder="جست‌وجوی عملیات و ابزار…" autocomplete="off"><div id="cmdl"></div></dialog>
+<script id="manager-offline-v1">(()=>{const norm=x=>String(x).trim().replace(/[۰-۹]/g,c=>c.charCodeAt(0)-1776).replace(/[٠-٩]/g,c=>c.charCodeAt(0)-1632),key='pa.offline.manager.v1',initial={s:'e727badf68fcfab748024dcf8a2091de',h:'e861b97eebf9b229eba0e894f148ea39bc1433ec97fed8ca0b29b0ad72a49c60'},hex=b=>Array.from(new Uint8Array(b),v=>v.toString(16).padStart(2,'0')).join('');let memory;async function derive(p,s){const e=new TextEncoder(),k=await crypto.subtle.importKey('raw',e.encode(norm(p)),'PBKDF2',false,['deriveBits']);return hex(await crypto.subtle.deriveBits({name:'PBKDF2',salt:e.encode(s),iterations:210000,hash:'SHA-256'},k,256))}window.OfflineMgr={async verify(p){let a;try{a=JSON.parse(localStorage.getItem(key))}catch{}a=a||memory||initial;return (await derive(p,a.s))===a.h},async remember(p){const s=hex(crypto.getRandomValues(new Uint8Array(16))),a={s,h:await derive(p,s)};memory=a;try{localStorage.setItem(key,JSON.stringify(a))}catch{}}};if(location.protocol==='https:'&&'serviceWorker' in navigator){window.addEventListener('load',async()=>{try{await navigator.serviceWorker.register('./manager-offline-sw.js');const r=await navigator.serviceWorker.ready;r.active?.postMessage({save:true})}catch{}})}})();</script>
+<script id="pa-comms-core">/* PaComms: کلاینت مشترک لایهٔ ارتباط (public.comms_v1) */
+(function(){'use strict';if(window.PaComms)return;
+var SB=(window.PA_SB&&window.PA_SB.url)||'https://zqhsdqbyzcegelcvwpno.supabase.co',KEY=(window.PA_SB&&window.PA_SB.key)||'sb_publishable_bz1N9Vex7kHmZ3qTatLeaQ_HW4nLZUg',QK='pa.comms.q.v1';
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}return null}
+function jget(k,d){try{var v=JSON.parse(ls(k));return v==null?d:v}catch(e){return d}}
+function uuidFrom(s){var h=[2166136261,461845907,3432918353,2246822507],i,j,c,o='';for(i=0;i<s.length;i++){c=s.charCodeAt(i);for(j=0;j<4;j++){h[j]=Math.imul(h[j]^c,16777619+2*j)>>>0;h[j]=(h[j]^(h[j]>>>13))>>>0}}for(j=0;j<4;j++)o+=('00000000'+h[j].toString(16)).slice(-8);return o.slice(0,8)+'-'+o.slice(8,12)+'-4'+o.slice(13,16)+'-a'+o.slice(17,20)+'-'+o.slice(20,32)}
+var C=window.PaComms={id:null,ls:ls,jget:jget,uuidFrom:uuidFrom,
+ call:async function(op,b,id){id=id||(C.id&&C.id());if(!id){var ne=new Error('ورود لازم است.');ne.noid=true;throw ne}
+  var h={apikey:KEY,'Content-Type':'application/json'};if(id.jwt)h.Authorization='Bearer '+id.jwt;var r;
+  try{r=await fetch(SB+'/rest/v1/rpc/comms_v1',{method:'POST',credentials:'omit',cache:'no-store',headers:h,body:JSON.stringify({op:op,cred:id.cred||{},b:b||{}}),signal:AbortSignal.timeout(15000)})}catch(e){var n=new TypeError('پاسخ سرور نرسید؛ اتصال را بررسی کنید.');n.net=true;throw n}
+  var j=null;try{j=await r.json()}catch(e){}
+  if(!r.ok){var m=j&&j.message,er=new Error(m&&/[آ-ی]/.test(m)?m:(r.status===404?'لایهٔ ارتباط روی سرور نصب نیست (فایل 06-comms.sql).':'درخواست انجام نشد (کد '+r.status+').'));er.status=r.status;er.net=r.status>=500;throw er}
+  return j},
+ q:function(){return jget(QK,[])},
+ enqueue:function(it){var q=C.q();if(q.some(function(x){return x.n===it.n}))return false;q.push(it);if(q.length>300)q=q.slice(-300);ls(QK,JSON.stringify(q));return true},
+ flush:async function(){if(!navigator.onLine)return;if(C._fl){C._again=1;return}C._fl=1;try{var stop=false;do{C._again=0;var q=C.q(),done={},att={};
+  for(var i=0;i<q.length;i++){var it=q[i];try{await C.call('result_submit',{kind:it.k,topic:String(it.t||'').slice(0,140),pct:it.pct==null?null:it.pct,detail:it.d||{},nonce:it.n,panel:it.p},{cred:{code:it.c,panel:it.p}});done[it.n]=1}
+   catch(e){if(e.net||e.noid){stop=true;break}att[it.n]=(it.a||0)+1;if(att[it.n]>=5)done[it.n]=1}}
+  var cur=C.q().filter(function(x){return !done[x.n]});cur.forEach(function(x){if(att[x.n])x.a=att[x.n]});ls(QK,JSON.stringify(cur))}while(C._again&&!stop)}finally{C._fl=0}},
+ startPing:function(){if(C._p)return;C._p=1;var ok=false,tick=0,go=function(){if(document.visibilityState==='hidden'||!navigator.onLine)return;var id=C.id&&C.id();if(!id){ok=false;return}C.call('ping',{},id).then(function(){ok=true},function(){ok=false})};
+  C.pingNow=go;setInterval(function(){if(!ok||++tick%9===0)go()},5000);addEventListener('online',go);document.addEventListener('visibilitychange',go);setTimeout(go,1500)},
+ fa:function(d){try{return new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Tehran'}).format(new Date(d))}catch(e){return String(d)}},
+ roleName:{manager:'مدیر',education:'ادمین آموزش',development:'ادمین توسعه',teacher:'استاد',student:'دانشجو'},
+ panelName:{student:'پنل دانشجو',teacher:'پنل استاد',education:'ادمین آموزش',development:'ادمین توسعه',aha:'آموزش AHA',nrp:'آموزش NRP',protocols:'آموزش پروتکل‌ها'},
+ el:function(t,x,css){var n=document.createElement(t);if(x!=null)n.textContent=x;if(css)n.style.cssText=css;return n}};
+addEventListener('online',function(){C.flush()});setInterval(function(){C.flush()},30000);
+})();
+</script>
+<script>'use strict';const $=s=>document.getElementById(s),base='https://zqhsdqbyzcegelcvwpno.supabase.co',key='sb_publishable_bz1N9Vex7kHmZ3qTatLeaQ_HW4nLZUg',P='teacher';
+const norm=x=>String(x).trim().replace(/[۰-۹]/g,c=>c.charCodeAt(0)-1776).replace(/[٠-٩]/g,c=>c.charCodeAt(0)-1632);
+let mode='',tok='',pw='',code='',data={},busy=false;const msg=s=>$('msg').textContent=s;
+async function rpc(name,body){let r;try{r=await fetch(base+'/rest/v1/rpc/'+name,{method:'POST',credentials:'omit',cache:'no-store',headers:{apikey:key,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(15000)})}catch{throw new TypeError('NET')}
+if(!r.ok){const e=Error('HTTP');e.status=r.status;throw e}return r.json()}
+function out(m){mode=tok=pw=code='';$('app').hidden=true;$('login').hidden=false;$('rows').replaceChildren();$('asklist').replaceChildren();asks=[];$('pw').value='';document.getElementById('offlineNote')?.remove();if(m)msg(m)}
+$('login').onsubmit=e=>{e.preventDefault();const b=e.submitter;b.disabled=true;(async()=>{const v=norm($('pw').value);$('pw').value='';
+const c=v.toUpperCase().replace(/[^A-Z0-9]/g,'');
+try{if(/^[23456789ABCDEFGHJKMNPQRSTUVWXYZ]{12}$/.test(c)){let ok;try{ok=await rpc('staffdesk_teacher_gate',{p_code:c})}catch{throw Error('استعلام عضویت ممکن نیست؛ اتصال را بررسی کنید.')}if(ok!==true)throw Error('ورود مجاز نیست. عضویت فعال و تأیید مدیر لازم است.');mode='code';code=c}
+else{pw=v;let t=null,off=false;if(navigator.onLine){try{t=await rpc('shared6_login',{p:P,pw:v,ms:Date.now()})}catch{if(!await OfflineMgr.verify(v))throw Error('ورود ممکن نیست؛ رمز محلی معتبر نیست.');off=true}}else{if(!await OfflineMgr.verify(v))throw Error('رمز مدیر نادرست است.');off=true}
+if(off){mode='local';const n=document.createElement('p');n.id='offlineNote';n.className='chip';n.textContent='✅ ورود موفق مدیر (آفلاین، با آخرین رمز ذخیره‌شده).';$('app').querySelector('main').prepend(n)}else{if(typeof t!=='string'||!/^[a-f0-9]{64}$/.test(t))throw Error('کد یا رمز نادرست است.');tok=t;mode='shared';await OfflineMgr.remember(v)}}
+$('who').textContent=mode==='code'?'ورود با کد شخصی':mode==='local'?'مدیر · آفلاین':'مدیر · رمز مشترک';
+$('login').hidden=true;$('app').hidden=false;msg('');await load()}catch(x){out(x.message)}finally{b.disabled=false}})()};
+$('exit').onclick=()=>{if(tok)void rpc('shared6_end',{t:tok}).catch(()=>{});out('خارج شدید.')};
+async function recheck(){if(!mode||mode==='local'&&!pw||!navigator.onLine)return;try{if(mode==='code'){if(await rpc('staffdesk_teacher_gate',{p_code:code})!==true)out('دسترسی شما توسط مدیر قطع یا غیرفعال شده است.');return}
+if(mode==='shared'&&await rpc('shared6_valid',{t:tok,panel:P})===true)return;const t=await rpc('shared6_login',{p:P,pw,ms:Date.now()});if(typeof t==='string'&&/^[a-f0-9]{64}$/.test(t)){tok=t;mode='shared';document.getElementById('offlineNote')?.remove();$('who').textContent='مدیر · رمز مشترک';await OfflineMgr.remember(pw);return}out('رمز مدیر تغییر کرده؛ ورود دوباره لازم است.')}catch{}}
+addEventListener('online',()=>void recheck());setInterval(()=>void recheck(),15000);
+const C=PaComms,el=C.el;
+C.id=()=>mode==='code'&&code?{cred:{code,panel:P}}:mode==='shared'&&tok?{cred:{t:tok,panel:P}}:null;C.startPing();
+const fa=n=>n==null||isNaN(n)?'—':new Intl.NumberFormat('fa-IR').format(Math.round(n));
+const KL={pre:'پیش‌آزمون',post:'پس‌آزمون',exam:'آزمون',calc:'محاسبات دارویی',finish:'🏁 پایان آموزش'},KC={lesson:'متن درس',question:'سؤال',notice:'اطلاعیه'};
+let results=[],contents=[],editing=null,more=false,page=1;const PER=8;
+$('today').textContent=C.fa(Date.now());
+function tab(t){for(const b of $('tnav').children)b.setAttribute('aria-pressed',String(b.dataset.t===t));$('tRes').hidden=t!=='res';$('tPub').hidden=t!=='pub';$('tList').hidden=t!=='list';$('tAsk').hidden=t!=='ask'}
+$('tnav').onclick=e=>{const b=e.target.closest('button'),t=b&&b.dataset.t;if(t){tab(t);if(t==='list')loadContent();if(t==='ask')loadAsk()}};
+async function load(){if(C.pingNow)C.pingNow();if(mode==='local'||!C.id()){$('rows').textContent='دریافت نتایج به اینترنت و ورود آنلاین نیاز دارد.';return}msg('در حال دریافت…');
+ {const k=document.createElement('div');k.className='sk';$('rows').replaceChildren(k)}
+ try{results=await C.call('results',{offset:0,panel:$('fp').value,kind:$('fk').value})||[];more=results.length>=100;page=1;msg('')}catch(e){results=[];more=false;msg(e.message)}draw();loadContent(true);loadAsk(true)}
+async function loadMore(){try{const r=await C.call('results',{offset:results.length,panel:$('fp').value,kind:$('fk').value})||[];results=results.concat(r);more=r.length>=100;draw()}catch(e){msg(e.message)}}
+function groups(){const q=$('q').value.trim(),G=new Map();for(const r of results){if(q&&!String(r.name).includes(q))continue;if(!G.has(r.name))G.set(r.name,[]);G.get(r.name).push(r)}return G}
+const avg=a=>{const v=a.filter(x=>x.pct!=null).map(x=>+x.pct);return v.length?v.reduce((s,x)=>s+x,0)/v.length:null};
+function charts(){const kb=$('chK');kb.replaceChildren();for(const k of['pre','post','exam','calc']){const a=avg(results.filter(r=>r.kind===k)),d=document.createElement('div');d.append(el('b',a==null?'—':fa(a)+'٪'));const s=document.createElement('span');s.style.height=(a||0)*1.1+'px';d.append(s,el('small',KL[k]));kb.append(d)}
+ const pb=$('chP');pb.replaceChildren();const tot=results.length||1;for(const p of['student','aha','nrp','protocols']){const n=results.filter(r=>r.panel===p).length,row=document.createElement('p'),i=document.createElement('i'),s=document.createElement('s');s.style.width=n/tot*100+'%';s.style.setProperty('--c','var(--p-'+p+')');i.append(s);row.append(el('span',C.panelName[p]),i,el('b',fa(n)));pb.append(row)}}
+function draw(){const G=groups(),S=[...G].map(([name,a])=>({name,a,fin:a.some(r=>r.kind==='finish'),avg:avg(a)}));
+ const all=avg(results);$('kS').textContent=fa(S.length);$('kF').textContent=fa(S.filter(s=>s.fin).length);$('kR').textContent=fa(results.length)+(more?'+':'');$('kA').textContent=all==null?'—':fa(all)+'٪';$('kRing').style.setProperty('--p',all||0);charts();flow();
+ $('sum').textContent='نمایش '+fa(S.length)+' دانشجو'+(more?' (برای بیشتر، «نمایش بیشتر» را بزنید)':'');const R=$('rows'),pg=$('pg');R.replaceChildren();pg.replaceChildren();
+ if(!S.length){R.textContent='موردی نیست.';return}
+ const pages=Math.ceil(S.length/PER);page=Math.min(page,pages);
+ for(const s of S.slice((page-1)*PER,page*PER)){const d=document.createElement('details');d.className='st';const sm=document.createElement('summary');
+  sm.append(Object.assign(el('span',[...s.name][0]||'؟'),{className:'av'}),el('div',s.name),Object.assign(el('span',s.fin?'🏁 پایان آموزش':'در حال آموزش'),{className:'tag'+(s.fin?' ok':'')}),el('b',s.avg==null?'—':fa(s.avg)+'٪'));
+  d.append(sm);const dt=document.createElement('div');dt.className='det';for(const r of s.a)dt.append(el('p',(C.panelName[r.panel]||r.panel)+' · '+(KL[r.kind]||r.kind)+(r.topic?': '+r.topic:'')+(r.pct!=null?' · '+fa(r.pct)+'٪':'')+' · '+C.fa(r.at)));d.append(dt);R.append(d)}
+ if(pages>1)for(let i=1;i<=pages;i++){const b=el('button',fa(i));if(i===page)b.setAttribute('aria-current','page');b.onclick=()=>{page=i;draw()};pg.append(b)}
+ if(more){const b=el('button','نمایش بیشتر');b.className='ghost';b.onclick=loadMore;pg.append(b)}}
+async function loadContent(quiet){if(!C.id())return;try{contents=await C.call('content_list',{})||[];drawList()}catch(e){if(!quiet)msg(e.message)}}
+function drawList(){flow();const L=$('clist');L.replaceChildren();if(!contents.length)L.textContent='موردی منتشر نشده است.';
+ for(const c of contents){const a=el('article','');a.className='it'+(c.active?'':' off');a.append(el('small',KC[c.kind]+' · '+(C.panelName[c.panel]||c.panel)+(c.topic?' · '+c.topic:'')+' · '+C.fa(c.at),'color:var(--mut)'),' ',Object.assign(el('span',c.active?'منتشر‌شده':'پس‌گرفته‌شده'),{className:'tag'+(c.active?' ok':'')}),el('h3',c.title));
+  const d=c.body||{};a.append(el('p',(c.kind==='question'?d.q:d.text)||''));
+  if(c.kind==='question'&&Array.isArray(d.options))a.append(el('small',' گزینه‌ها: '+d.options.map((o,i)=>(i+1)+') '+o+(i===+d.answer?' ✓':'')).join(' ، '),'color:var(--mut)'));
+  if(c.active){const e=el('button','ویرایش (نسخهٔ جدید)');e.className='ghost';e.style.marginInlineEnd='8px';e.onclick=()=>edit(c);const x=el('button','پس‌گرفتن');x.className='danger';x.onclick=async()=>{if(!confirm('«'+c.title+'» از پنل دانشجویان برداشته شود؟'))return;try{await C.call('content_retract',{id:c.id});msg('پس گرفته شد.');loadContent()}catch(er){msg(er.message)}};a.append(document.createElement('br'),e,x)}
+  L.append(a)}}
+function kindUi(){const k=$('pk').value;$('pqbox').hidden=k!=='question';$('ptl').textContent=k==='question'?'صورت سؤال':'متن'}
+$('pk').onchange=kindUi;kindUi();
+function edit(c){const d=c.body||{};editing=c.id;$('pk').value=c.kind;kindUi();$('pt').value=c.panel;$('ptopic').value=c.topic||'';$('ptitle').value=c.title;$('ptext').value=(c.kind==='question'?d.q:d.text)||'';
+ $('popts').value=Array.isArray(d.options)?d.options.join('\n'):'';$('pans').value=d.answer!=null?(+d.answer+1):1;$('pwhy').value=d.why||'';$('pnote').textContent='در حال ویرایش «'+c.title+'»: با انتشار، نسخهٔ قبلی پس گرفته می‌شود.';tab('pub')}
+$('pub').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;try{const k=$('pk').value,t=$('ptext').value.trim();let data;
+ if(k==='question'){const o=$('popts').value.split('\n').map(x=>x.trim()).filter(Boolean),a=parseInt(norm($('pans').value),10)-1;if(o.length<2||o.length>8)throw Error('سؤال باید ۲ تا ۸ گزینه داشته باشد (هر گزینه در یک خط).');if(!(a>=0&&a<o.length))throw Error('شمارهٔ گزینهٔ درست خارج از محدوده است.');data={q:t,options:o,answer:a,why:$('pwhy').value.trim()}}else data={text:t};
+ msg('در حال انتشار…');await C.call('content_publish',{kind:k,target:$('pt').value,topic:$('ptopic').value.trim(),title:$('ptitle').value.trim(),data});
+ if(editing){try{await C.call('content_retract',{id:editing})}catch(x){}editing=null}
+ $('pub').reset();kindUi();$('pnote').textContent='';msg('منتشر شد؛ دانشجو در چند لحظهٔ آینده آن را می‌بیند.');tab('list');await loadContent()}catch(x){msg(x.message)}finally{b.disabled=false}};
+$('q').oninput=()=>{page=1;draw()};$('refresh').onclick=()=>void load();$('lref').onclick=()=>void loadContent();$('fp').onchange=$('fk').onchange=()=>void load();
+
+function flow(){const F=$('fl');F.replaceChildren();for(const p of['student','aha','nrp','protocols']){const act=contents.filter(c=>c.panel===p&&c.active).length,rs=results.filter(r=>r.panel===p).length,d=document.createElement('div');d.className='pc';d.style.setProperty('--c','var(--p-'+p+')');d.append(el('b',C.panelName[p]),el('small','محتوای فعال: '+fa(act)+' · نتایج: '+fa(rs)),Object.assign(el('span',act?'منتشر‌شده':'بدون محتوا'),{className:'tag'+(act?' ok':'')}));F.append(d)}}
+const pv=()=>{$('pvT').textContent=$('ptitle').value||'عنوان شما اینجا نمایش داده می‌شود';$('pvB').textContent=$('ptext').value||'متن پیش‌نمایش…';$('pvK').textContent=(KC[$('pk').value]||'')+' · '+(C.panelName[$('pt').value]||'')};
+['ptitle','ptext','pk','pt'].forEach(i=>$(i).addEventListener('input',pv));pv();
+const nw=k=>{$('pk').value=k;kindUi();pv();tab('pub')};
+const ACT=[['✍️ سؤال جدید',()=>nw('question')],['📘 متن درس جدید',()=>nw('lesson')],['📣 اطلاعیه جدید',()=>nw('notice')],['↻ دریافت آخرین نتایج',()=>load()],['🏁 فقط پایان آموزش‌ها',()=>{$('fk').value='finish';tab('res');load()}],['💬 سؤال‌های دانشجویان',()=>{tab('ask');loadAsk()}],['📊 داشبورد',()=>tab('res')],['🗂 منتشرشده‌ها',()=>{tab('list');loadContent()}]];
+function cmd(){const q=$('cmdq').value.trim(),L=$('cmdl');L.replaceChildren();for(const[t,f]of ACT){if(q&&!t.includes(q))continue;const b=el('button',t);b.onclick=()=>{$('cmd').close();f()};L.append(b)}}
+$('cmdk').onclick=()=>{$('cmdq').value='';cmd();$('cmd').showModal();$('cmdq').focus()};$('cmdq').oninput=cmd;
+addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'&&!$('app').hidden){e.preventDefault();$('cmdk').onclick()}});
+
+/* ===== سؤال‌های دانشجویان (comms_ask_v1 · فایل 07-askbot.sql) ===== */
+var asks=[];
+async function askCall(op,b){const id=C.id();if(!id)throw Error('ورود لازم است.');let r;
+ try{r=await fetch(base+'/rest/v1/rpc/comms_ask_v1',{method:'POST',credentials:'omit',cache:'no-store',headers:{apikey:key,'Content-Type':'application/json'},body:JSON.stringify({op,cred:id.cred||{},b:b||{}}),signal:AbortSignal.timeout(15000)})}catch{throw Error('پاسخ سرور نرسید؛ اتصال را بررسی کنید.')}
+ let j=null;try{j=await r.json()}catch{}
+ if(!r.ok){const m=j&&j.message;throw Error(m&&/[آ-ی]/.test(m)?m:(r.status===404?'ربات روی سرور نصب نیست (فایل 07-askbot.sql).':'درخواست انجام نشد (کد '+r.status+').'))}
+ return j}
+function askBadge(n){const b=$('askTab');if(b)b.textContent='سؤال‌های دانشجویان'+(n?' ('+fa(n)+')':'')}
+async function loadAsk(quiet){if(mode==='local'||!C.id()){if(!quiet)$('asklist').textContent='دریافت سؤال‌ها به اینترنت و ورود آنلاین نیاز دارد.';return}
+ try{const r=await askCall('ask_inbox',{status:$('askf').value})||{};asks=Array.isArray(r.items)?r.items:[];askBadge(+r.open||0);drawAsk()}catch(e){if(!quiet)msg(e.message)}}
+function drawAsk(){const L=$('asklist');if(L.querySelector('textarea:focus'))return;const keep={};L.querySelectorAll('textarea').forEach(t=>{if(t.value)keep[t.dataset.id]=t.value});L.replaceChildren();
+ if(!asks.length){L.textContent='سؤالی نیست.';return}
+ for(const q of asks){const a=document.createElement('article');a.className='it'+(q.reply?'':'');
+  a.append(el('small',q.student+(q.context?' · '+q.context:'')+' · '+C.fa(q.at),'color:var(--mut)'),' ',Object.assign(el('span',q.reply?'پاسخ داده شد':'بدون پاسخ'),{className:'tag'+(q.reply?' ok':'')}),el('p',q.question,'margin-top:6px'));
+  if(q.reply)a.append(el('small','پاسخ'+(q.replier?' ('+q.replier+')':'')+' · '+C.fa(q.reply_at)+':','color:var(--mut)'),el('p',q.reply));
+  const t=document.createElement('textarea');t.rows=3;t.maxLength=4000;t.dataset.id=q.id;t.placeholder=q.reply?'ویرایش پاسخ…':'پاسخ استاد…';t.setAttribute('aria-label','پاسخ به '+q.student);if(keep[q.id])t.value=keep[q.id];
+  const b=el('button',q.reply?'ثبت ویرایش پاسخ':'ارسال پاسخ');b.style.marginTop='8px';
+  b.onclick=async()=>{const v=t.value.trim();if(!v){msg('متن پاسخ را بنویسید.');return}b.disabled=true;try{await askCall('ask_reply',{id:q.id,text:v});msg('پاسخ ارسال شد.');t.value='';await loadAsk()}catch(e){msg(e.message)}finally{b.disabled=false}};
+  a.append(t,b);L.append(a)}}
+$('askf').onchange=()=>void loadAsk();$('askref').onclick=()=>void loadAsk();
+setInterval(()=>{if(!document.hidden&&C.id()&&mode!=='local')void loadAsk(true)},30000);
+$('go1').onclick=()=>nw('question');$('go2').onclick=()=>$('tRes').scrollIntoView({behavior:'smooth'});
+</script></html>
